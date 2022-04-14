@@ -76,4 +76,6 @@ const subArrVals = calcDataKeys(demoObj, 'a', 'subtract')
 const idKeyObj = makeIdKeyObjFromArr(demoIdKeyArr, 'name')
 
 console.log({ showPrivArr, hidePrivObj, showPrivObj, hidePrivArr, addObjVals, subObjVals, addArrVals, subArrVals, idKeyObj })
+
+
 /*** END DEMO DATA ********************/
