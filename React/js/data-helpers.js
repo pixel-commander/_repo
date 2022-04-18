@@ -37,7 +37,7 @@ export const calcDataKeys = (data, key, mathop) => !data ? 0 : calculateArrKeys(
 export const filterData = (data, options) => Array.isArray(data) ? filterArr(data, options) : filterObj(data, options)
 
 //----------//
-/// easy to read version sample
+// easy to read version sample
 // filter array and return new array with only showKey, or everything but hideKey.  instantly returns [] empty if no data
 // for fun
 //----------//
@@ -76,6 +76,5 @@ const subArrVals = calcDataKeys(demoObj, 'a', 'subtract')
 const idKeyObj = makeIdKeyObjFromArr(demoIdKeyArr, 'name')
 
 console.log({ showPrivArr, hidePrivObj, showPrivObj, hidePrivArr, addObjVals, subObjVals, addArrVals, subArrVals, idKeyObj })
-
 
 /*** END DEMO DATA ********************/

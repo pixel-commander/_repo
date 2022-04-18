@@ -11,8 +11,7 @@ export const setLoc = (dbkey, data) => new Promise((resolve, reject) => {
   let dx = JSON.stringify(data)
 
   // data added, return promise
-  if (d === dx) return resolve(data)
-  else return reject({ error: 'date not saved' })
+  return d === dx ? resolve(data) : reject({ error: 'date not saved' })
 })
 
 /*================================================ // -----  --  -
@@ -26,31 +25,21 @@ export const useLoc = (dbkey, refresh, id) => {
   if (loc) setLoc(dbkey, JSON.stringify(loc))
 
   // check for dbkey
-  useEffect(() => {
-    const doit = () => dbkey ? set(getLoc(dbkey)) : false
-    return () => doit()
-  }, [set, refresh, dbkey])
+  useEffect(() => dbkey ? set(getLoc(dbkey)) : set(false), [set, refresh, dbkey])
 
   const handle = (type, data, res) => {
     switch (type) {
       // writes/overwrites to localsto
       case 'set': {
-        let s = {}
-
-        if (id) s = { [id]: data }
-        else s = data
-
+        let s = id ? { [id]: data } : data
         if (res) res(s)
         return set(s)
       }
       // updates localstorage
       case 'update': {
         // deconstruct variable or set false if there's no data
-        let u = !loc ? false : !id ? { ...loc } : { [id]: {} }
-        if (id) {
-          if (!u[id]) u = { ...u, [id]: data }
-          else u[id] = { ...u[id], ...data }
-        } else u = { ...u, ...data }
+        let u = !loc ? false : !id ? { ...loc, ...data } : { ...loc }
+        if (id) u[id] = { ...u[id], ...data }
         if (res) res(u)
         return set(u)
       }

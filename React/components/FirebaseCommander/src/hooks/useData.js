@@ -1,9 +1,9 @@
 import { useState, useContext, useEffect } from 'react'
-import { FirebaseContext } from '../../'
+import { FirebaseContext } from '../../../../context'
 
 import { useLoc } from './useLoc'
 
-import { listenToPath } from '../js/db.handlers'
+import { listenToPath } from '../../_lib/db.handlers'
 
 /*================================================ // -----  --  -
 /* useData is used when needing to be able to switch between
@@ -40,12 +40,7 @@ const DbData = (key, id) => {
       : `/${key}/${id}/`
 
   // testing to see which is a better way to load
-  useEffect(() =>
-    (path && key)
-      ? listenToPath(db, path, dat => set(dat || false))
-      : set(false)
-    , [db, key, id, path]
-  )
+  useEffect(() => (path && key) ? listenToPath(db, path, dat => set(dat || false)) : set(false), [db, key, id, path])
 
   return [data, set]
 }

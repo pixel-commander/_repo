@@ -1,22 +1,11 @@
-//import { initializeApp } from 'firebase/app'
 import {
-  //getAuth, // needed for all
   GoogleAuthProvider, // needed for LoginWIthGooglePopup
   signInWithPopup, // needed for LoginWIthGooglePopup
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  //signInEmailUser
-  //updatePassword,
-  //indexedDBLocalPersistence,
-  // browserLocalPersistence,
-  //browserPopupRedirectResolver,
-  //initializeAuth,
-  // browserSessionPersistence
 } from 'firebase/auth'
-//import { config } from '../../../../settings/firebase.settings'
-//import { readDbPath, writeDbPromise } from './dbHandlers'
 
 
 // checks for logged in userToken

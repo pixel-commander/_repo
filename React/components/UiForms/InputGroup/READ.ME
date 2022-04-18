@@ -1,0 +1,39 @@
+/*================================================ // -----  --  -
+/* InputGroup is a component used with UiForms that contains and styls
+/* a group with label, input, error, helper text
+/* This will render an uncontrolled input
+/*---------------------------------==// --- /*/
+/* !!! REQUIRES InputGroupUi !!!
+/*---------->
+/* USAGE:
+/* InputGroupUi - see ./demos/UiFormsDemo.elements for sample
+/* imports to build InputGroupUi { UiInputGroup, UiLabel, UiInput, UiHelper }
+/*===------------------// ---- / --- --  - /* 
+
+incoming settings = {
+  InputGroupUi, // styled component that wraps and styls children
+  label, // label text
+  helper, // helper text
+  formerror, // post submit form errors (callback errors),
+  errormsg, // message to display if validation fails, if using a validator.js and no errormsg is set then the default will be used
+
+  // gets sent to Input
+  value, // incoming formvalue
+  input: {
+    name, // data key
+    validate: val => func(val), // returns true if error
+    type, // input type
+    required, // is this required
+  }
+  handlers: {
+    blur: e => func(e), // what to do if the form blurs, this will trigger after validate
+    focus: e => func(e),
+    change: val => func(val), // *DO NOT USE* function that runs onChange
+  }
+}
+
+component settings genereated for Input = {
+  setError, // clears the input group error or incoming form error
+}
+
+/*===-----------------//-*/

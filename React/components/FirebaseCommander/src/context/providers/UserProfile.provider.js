@@ -1,11 +1,12 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from 'react'
 
-import { UserProfileContext, AuthContext, FirebaseContext } from "../../"
+import { UserProfileContext, AuthContext } from '../../..'
+import { FirebaseContext } from '../../../../../context'
 
-import { getLoc } from "../hooks/useLoc"
-import { useData } from "../hooks/useData"
+import { getLoc } from '../../hooks/useLoc'
+import { useData } from '../../hooks/useData'
 
-import { listenToPath } from '../js/db.handlers'
+import { listenToPath } from '../../../_lib/db.handlers'
 
 export const UserDb = props => {
   const { db } = useContext(FirebaseContext)
